@@ -1,0 +1,58 @@
+/*
+Nama : Dzaki Imam Fawwaz
+NIM  : 2702367486
+date : 28 okt 2023
+*/
+
+#include <stdio.h>
+#include <string.h>
+
+// fungsi untuk bubble sort
+void bubbleSort(char arr[][20], int n);
+
+// fungsi untuk print nama
+void printName(char arr[][20], int n);
+
+
+int main(){
+  // kumpulan nama
+  char nama[][20] = {"Fahmi Harahap", "Icha Nurlisa", "Agus Gumilang", "Zelda Zuraida", "Felix Halim",
+  "Deddy Corbuizer", "Hassan Makmur", "Makmun Sukur", "Bella Christie", "Chelshe Love"};
+  int n = 10;
+
+  // print data sebelum di sort
+  printf("Daftar nama sebelum di urut: \n");
+  printName(nama, n);
+
+  // menjalankan bubble sort
+  bubbleSort(nama, n);
+
+  // print data sesudah di sort
+  printf("Daftar nama sesudah di urut: \n");
+  printName(nama, n);
+
+  return 0;
+}
+// fungsi untuk bubble sort
+void bubbleSort(char arr[][20], int n){
+  int i, j;
+  char temp[20];
+  for(i=0; i<n-1; i++){
+    for(j=0; j<n-i-1; j++){
+      if(strcmp(arr[j], arr[j+1])>0){
+        strcpy(temp, arr[j]);
+        strcpy(arr[j], arr[j+1]);
+        strcpy(arr[j+1], temp);
+      }
+    }
+  }
+}
+
+// fungsi untuk print nama
+void printName(char arr[][20], int n){
+ int i;
+  for(i=0; i<n; i++){
+    printf("%d. %s\n", i+1, arr[i]);
+  }
+  printf("\n");
+}
